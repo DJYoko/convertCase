@@ -29,11 +29,6 @@
 		<h2>about</h2>
 		<p>convertCase is simple program for TEXT exchange.
 			<br>from camelCase to kebab-case, from kebab-case to snake_case etc...</p>
-
-		<div class="line">
-			<h3>input</h3>
-			<input type="text" class="form-control" name="from" placeholder="type some text">
-		</div>
 		<div class="line">
 			<h3>exchange type</h3>
 			<form>
@@ -45,9 +40,16 @@
 				<label><input type="radio" name="exchange_type" value="sk">snake_case to kebab-case</label>
 			</form>
 		</div>
-		<div class="line">
-			<h3>result</h3>
-			<input type="text" class="form-control" name="result" readonly>
+
+		<div class="line row">
+			<div class="col">
+				<h3>input</h3>
+				<input type="text" class="form-control" name="from" placeholder="type some text">
+			</div>
+			<div class="col">
+				<h3>result</h3>
+				<input type="text" class="form-control" name="result" readonly>
+			</div>
 		</div>
 	</div>
 	<style>
@@ -86,6 +88,7 @@
 					$(this).val(),
 					$('input[name="exchange_type"]:checked').val()
 				);
+				console.log(result);
 				$('input[name="result"]').val(result);
 			});
 
@@ -100,6 +103,8 @@
 						$radio.closest('label').removeClass('checked');
 					}
 				});
+
+				$('input[name="from"]').trigger('keyup');
 			});
 
 			//default exchange type set
