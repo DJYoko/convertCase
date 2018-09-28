@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Case Cnverter</title>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<script src="caseConverter.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<!--[if lt IE 9]>
+<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+	<link rel="shortcut icon" href="">
+</head>
+
+<body>
+	<!-- Place your content here -->
+	<!-- SCRIPTS -->
+	<!-- Example: <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+	<div class="container">
+		<h1>Case Cnverter</h1>
+		<h2>about</h2>
+		<p>Case Cnverter is simple program for TEXT exchange.
+			<br>from CAMEL CASE to SNAKE CASE, from SNAKE CASE to SNAKE CASE etc...</p>
+		<div class="row">
+
+			<div class="col-4">
+				input
+				<input type="text" class="form-control" name="from" placeholder="type some text">
+			</div>
+			<div class="col-8">
+				type
+				<form>
+					<label><input type="radio" name="exchange_type" value="cs">camelCase to snake_case</label>
+					<label><input type="radio" name="exchange_type" value="ck">camelCase to kebab-case</label>
+					<label><input type="radio" name="exchange_type" value="sc">snake_case to camelCase</label>
+					<label><input type="radio" name="exchange_type" value="sk">snake_case to kebab-case</label>
+					<label><input type="radio" name="exchange_type" value="ks">kebab-case to snake_case</label>
+					<label><input type="radio" name="exchange_type" value="kc">kebab-case to camelCase</label>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				result
+				<input type="text" class="form-control" name="result" readonly>
+			</div>
+
+		</div>
+	</div>
+	<style>
+		pre {
+			background: #f2f2f2;
+			border: 1px solid #eee;
+			border-radius: 4px;
+			min-height: 40px;
+			padding: 12px;
+		}
+
+	</style>
+	<script>
+		$(function() {
+			$('input[name="from"]').on('keyup blur mousedown', function() {
+				//				const $this = $(this);
+				// const this_value = $this.val();
+				// const url_param = getUrlParam(this_value);
+				// //console.log(JSON.stringify(url_param, null, 4))
+				// $('#result').html(JSON.stringify(url_param, null, 4));
+			});
+		});
+
+	</script>
+
+</body>
+
+</html>
