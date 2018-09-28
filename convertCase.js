@@ -10,6 +10,8 @@
  		return false;
  	}
 
+ 	let result = '';
+
  	switch (exchange_type_set.indexOf(type)) {
  		case 0:
  			// camelCase to kebab-case
@@ -22,13 +24,17 @@
  			break;
  		case 3:
  			// kebab-case to snake_case
+ 			result = input.replace(/\-/g, '_');
  			break;
  		case 4:
- 			// kebab-case to snake_case
+ 			// snake_case to camelCase
  			break;
  		case 5:
  			// snake_case to kebab-case
+ 			result = input.replace(/_/g, '-');
  			break;
  	}
 
+
+ 	return result;
  }
