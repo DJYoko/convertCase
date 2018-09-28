@@ -29,30 +29,25 @@
 		<h2>about</h2>
 		<p>Case Cnverter is simple program for TEXT exchange.
 			<br>from CAMEL CASE to SNAKE CASE, from SNAKE CASE to SNAKE CASE etc...</p>
-		<div class="row">
 
-			<div class="col-4">
-				input
-				<input type="text" class="form-control" name="from" placeholder="type some text">
-			</div>
-			<div class="col-8">
-				type
-				<form>
-					<label><input type="radio" name="exchange_type" value="cs">camelCase to snake_case</label>
-					<label><input type="radio" name="exchange_type" value="ck">camelCase to kebab-case</label>
-					<label><input type="radio" name="exchange_type" value="sc">snake_case to camelCase</label>
-					<label><input type="radio" name="exchange_type" value="sk">snake_case to kebab-case</label>
-					<label><input type="radio" name="exchange_type" value="ks">kebab-case to snake_case</label>
-					<label><input type="radio" name="exchange_type" value="kc">kebab-case to camelCase</label>
-				</form>
-			</div>
+		<div class="line">
+			<h3>input</h3>
+			<input type="text" class="form-control" name="from" placeholder="type some text">
 		</div>
-		<div class="row">
-			<div class="col">
-				result
-				<input type="text" class="form-control" name="result" readonly>
-			</div>
-
+		<div class="line">
+			<h3>exchange type</h3>
+			<form>
+				<label><input type="radio" name="exchange_type" value="cs">camelCase to snake_case</label>
+				<label><input type="radio" name="exchange_type" value="ck">camelCase to kebab-case</label>
+				<label><input type="radio" name="exchange_type" value="sc">snake_case to camelCase</label>
+				<label><input type="radio" name="exchange_type" value="sk">snake_case to kebab-case</label>
+				<label><input type="radio" name="exchange_type" value="ks">kebab-case to snake_case</label>
+				<label><input type="radio" name="exchange_type" value="kc">kebab-case to camelCase</label>
+			</form>
+		</div>
+		<div class="line">
+			<h3>result</h3>
+			<input type="text" class="form-control" name="result" readonly>
 		</div>
 	</div>
 	<style>
@@ -64,16 +59,49 @@
 			padding: 12px;
 		}
 
+		.line {
+			padding: 12px 0;
+		}
+
+		label {
+			cursor: pointer;
+			padding: 2px 4px;
+			transition: all 200ms;
+			border-radius: 4px;
+		}
+
+		label:hover {
+			background-color: #fce4ec;
+		}
+
+		label.checked {
+			background-color: #f8bbd0;
+		}
+
 	</style>
 	<script>
 		$(function() {
 			$('input[name="from"]').on('keyup blur mousedown', function() {
-				//				const $this = $(this);
-				// const this_value = $this.val();
-				// const url_param = getUrlParam(this_value);
-				// //console.log(JSON.stringify(url_param, null, 4))
-				// $('#result').html(JSON.stringify(url_param, null, 4));
+				const $this = $(this);
+				const this_value = $this.val();
+				const exchange_type = $('input[name="exchange_type"]:checked').val();
 			});
+
+			//exchange_type
+			$('input[name="exchange_type"]').on('change', function() {
+
+				$('input[name="exchange_type"]').each(function() {
+					const $radio = $(this);
+					if ($radio.prop('checked') === true) {
+						$radio.closest('label').addClass('checked');
+					} else {
+						$radio.closest('label').removeClass('checked');
+					}
+				});
+			});
+
+			//default exchange type set
+			$('input[name="exchange_type"]').first().prop('checked', true).trigger('change');
 		});
 
 	</script>
