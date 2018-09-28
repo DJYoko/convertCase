@@ -28,7 +28,7 @@
 		<h1>convertCase</h1>
 		<h2>about</h2>
 		<p>convertCase is simple program for TEXT exchange.
-			<br>from CAMEL CASE to SNAKE CASE, from SNAKE CASE to SNAKE CASE etc...</p>
+			<br>from camelCase to kebab-case, from kebab-case to snake_case etc...</p>
 
 		<div class="line">
 			<h3>input</h3>
@@ -82,9 +82,11 @@
 	<script>
 		$(function() {
 			$('input[name="from"]').on('keyup blur mousedown', function() {
-				const $this = $(this);
-				const this_value = $this.val();
-				const exchange_type = $('input[name="exchange_type"]:checked').val();
+				const result = convertCase(
+					$(this).val(),
+					$('input[name="exchange_type"]:checked').val()
+				);
+				$('input[name="result"]').val(result);
 			});
 
 			//exchange_type
