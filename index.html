@@ -21,9 +21,6 @@
 </head>
 
 <body>
-	<!-- Place your content here -->
-	<!-- SCRIPTS -->
-	<!-- Example: <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
 	<div class="container">
 		<h1>convertCase</h1>
 		<h2>about</h2>
@@ -40,7 +37,6 @@
 				<label><input type="radio" name="exchange_type" value="sk">snake_case to kebab-case</label>
 			</form>
 		</div>
-
 		<div class="line row">
 			<div class="col">
 				<h3>input</h3>
@@ -67,7 +63,7 @@
 
 		label {
 			cursor: pointer;
-			padding: 2px 4px;
+			padding: 2px 12px;
 			transition: all 200ms;
 			border-radius: 4px;
 		}
@@ -109,6 +105,7 @@
 
 			//default exchange type set
 			$('input[name="exchange_type"]').first().prop('checked', true).trigger('change');
+
 		});
 
 	</script>
