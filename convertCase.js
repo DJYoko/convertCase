@@ -10,31 +10,33 @@
  		return false;
  	}
 
- 	let result = '';
-
- 	switch (exchange_type_set.indexOf(type)) {
- 		case 0:
+ 	const regex_collection = {
+ 		'ck': function (arg) {
  			// camelCase to kebab-case
- 			break;
- 		case 1:
+ 			return arg.replace(/([a-z])([A-Z])/g, '$1-$2'); //todo set correct regex
+ 		},
+ 		'cs': function (arg) {
  			// camelCase to snake_case 
- 			break;
- 		case 2:
+ 			return arg.replace(/([a-z])([A-Z])/g, '$1_$2'); //todo set correct regex
+ 		},
+ 		'kc': function (arg) {
  			// kebab-case to camelCase
- 			break;
- 		case 3:
+ 			return arg.replace(/\-(.)/g, '$1'.toUpperCase());
+ 		},
+ 		'ks': function (arg) {
  			// kebab-case to snake_case
- 			result = input.replace(/\-/g, '_');
- 			break;
- 		case 4:
+ 			return arg.replace(/\-/g, '_');
+ 		},
+ 		'sc': function (arg) {
  			// snake_case to camelCase
- 			break;
- 		case 5:
+ 			return arg.replace('aa', 'bb'); //todo set correct regex
+ 		},
+ 		'sk': function (arg) {
  			// snake_case to kebab-case
- 			result = input.replace(/_/g, '-');
- 			break;
+ 			return arg.replace(/_/g, '-');
+ 		},
  	}
 
+ 	return regex_collection[type](input);
 
- 	return result;
  }
