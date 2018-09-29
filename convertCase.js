@@ -13,15 +13,18 @@
  	const regex_collection = {
  		'ck': function (arg) {
  			// camelCase to kebab-case
- 			return arg.replace(/([a-z])([A-Z])/g, '$1-$2'); //todo set correct regex
+ 			return arg.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
  		},
  		'cs': function (arg) {
  			// camelCase to snake_case 
- 			return arg.replace(/([a-z])([A-Z])/g, '$1_$2'); //todo set correct regex
+ 			return arg.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
  		},
  		'kc': function (arg) {
  			// kebab-case to camelCase
- 			return arg.replace(/\-(.)/g, '$1'.toUpperCase());
+ 			const replacer = function (match) {
+ 				return match.replace(/\-/g, '').toUpperCase();
+ 			}
+ 			return arg.replace(/\-[a-z]/g, replacer);
  		},
  		'ks': function (arg) {
  			// kebab-case to snake_case
@@ -29,7 +32,10 @@
  		},
  		'sc': function (arg) {
  			// snake_case to camelCase
- 			return arg.replace('aa', 'bb'); //todo set correct regex
+ 			const replacer = function (match) {
+ 				return match.replace(/\_/g, '').toUpperCase();
+ 			}
+ 			return arg.replace(/\_[a-z]/g, replacer);
  		},
  		'sk': function (arg) {
  			// snake_case to kebab-case
