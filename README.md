@@ -1,4 +1,4 @@
-### Case Cnverter
+### convertCase
 
 ## about
 convertCase is a simple program for TEXT exchange. 
