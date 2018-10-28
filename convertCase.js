@@ -1,14 +1,11 @@
  /**
   * method
-  * @param input {string} - input string
-  * @param type  {string} - type of exchange (cs,ck,sc,sk,ks,kc)
+  * @param params {object}
+  * @param params.input {string} - input string
+  * @param params.type  {string} - type of exchange (cs,ck,sc,sk,ks,kc)
+  * @param params.constructor  {boolean} - is Constructor (Capitalize the 1st letter)
   */
- const convertCase = function (input, type) {
- 	const EXCHANGE_TYPE_LIST = ['ck', 'cs', 'kc', 'ks', 'sc', 'sk'];
-
- 	if (typeof input !== 'string' || typeof type !== 'string' || EXCHANGE_TYPE_LIST.indexOf(type) === -1) {
- 		return false;
- 	}
+ const convertCase = function (params) {
 
  	const REGEX_LIST = {
  		'ck': function (arg) {
@@ -41,8 +38,10 @@
  			// snake_case to kebab-case
  			return arg.replace(/_/g, '-');
  		},
- 	}
+ 	};
 
- 	return REGEX_LIST[type](input);
+ 	let return_string = REGEX_LIST[params.type](params.input);
+	 
+	 return return_string;
 
  }
