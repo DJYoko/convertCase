@@ -68,14 +68,13 @@
 		label.checked {
 			background-color: #f8bbd0;
 		}
-
 	</style>
 	<script>
 		$(function() {
-			
+
 			//edit original text
 			$('input[name="from"]').on('keyup blur mousedown', function() {
-				run();
+				runConert();
 			});
 
 			//exchange_type
@@ -88,28 +87,30 @@
 						$radio.closest('label').removeClass('checked');
 					}
 				});
-				run();
+				runConert();
 			});
 
-			//default exchange type set
-			$('input[name="exchange_type"]').first().prop('checked', true).trigger('change');
-			
-			function run() {
-				
-				console.log($('input[name="constructor"]:checked'));
-				
+			//edit original text
+			$('input[name="constructor"]').on('change', function() {
+				runConert();
+			});
+
+			function runConert() {
 				const result = convertCase({
 					input: $('input[name="from"]').val(),
-					type: $('input[name="exchange_type"]:checked').val()	,
-					constructor: $('input[name="constructor"]:checked').length !== 0,
+					type: $('input[name="exchange_type"]:checked').val(),
+					constructor: $('input[name="constructor"]').prop('checked'),
 				});
 				$('input[name="result"]').val(result);
 			}
 
-		});
+			// run init
+			$('input[name="exchange_type"]').first().prop('checked', true);
+			runConert();
 
+		});
 	</script>
 
 </body>
 
-</html>
+</html>s
