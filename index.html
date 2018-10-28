@@ -72,6 +72,12 @@
 		label.checked {
 			background-color: #f8bbd0;
 		}
+		
+		label.disabled {
+			background-color: #eeeeee;
+			cursor:no-drop;
+			opacity: 0.25;
+		}
 	</style>
 	<script>
 		$(function() {
@@ -91,6 +97,16 @@
 						$radio.closest('label').removeClass('checked');
 					}
 				});
+				
+				const selected_type = $('input[name="exchange_type"]:checked').val();
+				if(selected_type === 'kc' || selected_type === 'sc') {
+					$('input[name="constructor"]').prop('disabled', false);
+					$('input[name="constructor"]').closest('label').removeClass('disabled');
+				} else {
+					$('input[name="constructor"]').prop('disabled', true);
+					$('input[name="constructor"]').closest('label').addClass('disabled');
+				}
+				
 				runConert();
 			});
 
@@ -109,7 +125,7 @@
 			}
 
 			// run init
-			$('input[name="exchange_type"]').first().prop('checked', true);
+			$('input[name="exchange_type"]').first().prop('checked', true).trigger('change');
 			runConert();
 
 		});
