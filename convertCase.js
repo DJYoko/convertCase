@@ -4,13 +4,13 @@
   * @param type  {string} - type of exchange (cs,ck,sc,sk,ks,kc)
   */
  const convertCase = function (input, type) {
- 	const exchange_type_set = ['ck', 'cs', 'kc', 'ks', 'sc', 'sk'];
+ 	const EXCHANGE_TYPE_LIST = ['ck', 'cs', 'kc', 'ks', 'sc', 'sk'];
 
- 	if (typeof input !== 'string' || typeof type !== 'string' || exchange_type_set.indexOf(type) === -1) {
+ 	if (typeof input !== 'string' || typeof type !== 'string' || EXCHANGE_TYPE_LIST.indexOf(type) === -1) {
  		return false;
  	}
 
- 	const regex_collection = {
+ 	const REGEX_LIST = {
  		'ck': function (arg) {
  			// camelCase to kebab-case
  			return arg.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
@@ -43,6 +43,6 @@
  		},
  	}
 
- 	return regex_collection[type](input);
+ 	return REGEX_LIST[type](input);
 
  }
