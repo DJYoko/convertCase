@@ -25,6 +25,19 @@
 		<h2>about</h2>
 		<p>convertCase is simple program for TEXT exchange.
 			<br>from camelCase to kebab-case, from kebab-case to snake_case etc...</p>
+		
+		<hr />
+		<div class="line row">
+			<div class="col">
+				<h3>input</h3>
+				<input type="text" class="form-control" name="from" placeholder="type some text" autofocus>
+			</div>
+			<div class="col">
+				<h3>result</h3>
+				<input type="text" class="form-control" name="result" readonly>
+			</div>
+		</div>
+		<hr />
 		<div class="line">
 			<h3>select type</h3>
 			<form>
@@ -36,17 +49,6 @@
 				<label><input type="radio" name="exchange_type" value="sk">snake_case to kebab-case</label>
 			</form>
 			<label><input type="checkbox" name="constructor" value="true">Constructor option (capitalizeFirstLetter => <strong>C</strong>apitalizeFirstLetter).</label>
-		</div>
-		<hr />
-		<div class="line row">
-			<div class="col">
-				<h3>input</h3>
-				<input type="text" class="form-control" name="from" placeholder="type some text">
-			</div>
-			<div class="col">
-				<h3>result</h3>
-				<input type="text" class="form-control" name="result" readonly>
-			</div>
 		</div>
 		<hr />
 		<p class="caption">to check more &amp; latest develop statements,
