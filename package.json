@@ -1,0 +1,27 @@
+{
+  "name": "convertcase",
+  "version": "1.0.0",
+  "description": "convertCase is a simple program for TEXT exchange. \r from camelCase to kebab-case, from kebab-case to snake_case etc...",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DJYoko/convertCase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DJYoko/convertCase/issues"
+  },
+  "homepage": "https://github.com/DJYoko/convertCase#readme",
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "typescript": "^3.4.5"
+  }
+}
