@@ -117,7 +117,7 @@
 			});
 
 			function runConert() {
-				const result = convertCase({
+				const result = window.convertCase({
 					input: $('input[name="from"]').val(),
 					type: $('input[name="exchange_type"]:checked').val(),
 					constructor: $('input[name="constructor"]').prop('checked'),
