@@ -85,7 +85,7 @@
 
 			//edit original text
 			$('input[name="from"]').on('keyup blur mousedown', function() {
-				runConert();
+				runConvert();
 			});
 
 			//exchange_type
@@ -108,26 +108,26 @@
 					$('input[name="constructor"]').closest('label').addClass('disabled');
 				}
 
-				runConert();
+				runConvert();
 			});
 
 			//edit original text
 			$('input[name="constructor"]').on('change', function() {
-				runConert();
+				runConvert();
 			});
 
-			function runConert() {
+			function runConvert() {
 				const result = window.convertCase({
 					input: $('input[name="from"]').val(),
 					type: $('input[name="exchange_type"]:checked').val(),
-					constructor: $('input[name="constructor"]').prop('checked'),
+					isConstructor: $('input[name="constructor"]').prop('checked'),
 				});
 				$('input[name="result"]').val(result);
 			}
 
 			// run init
 			$('input[name="exchange_type"]').first().prop('checked', true).trigger('change');
-			runConert();
+			runConvert();
 
 		});
 	</script>
