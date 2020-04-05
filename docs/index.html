@@ -9,14 +9,13 @@
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Latest compiled and minified CSS -->
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="convertCase.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<!--[if lt IE 9]>
-	<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 	<link rel="shortcut icon" href="">
 </head>
 
@@ -25,13 +24,8 @@
 		<h1>convertCase</h1>
 		<h2>about</h2>
 		<p>convertCase is simple program for TEXT exchange.
-			<br>from camelCase to kebab-case, from kebab-case to snake_case etc...
-			<br>
-			<br>in current version, convertCase.js is build by webpack from Typescript(s).
-			<br>if you wanna check Legacy (pure js) version, check <a
-				href="./convertCase_legacy.js">convertCase_legacy.js</a>.
-		</p>
-
+			<br>from camelCase to kebab-case, from kebab-case to snake_case etc...</p>
+		
 		<hr />
 		<div class="line row">
 			<div class="col">
@@ -54,13 +48,11 @@
 				<label><input type="radio" name="exchange_type" value="sc">snake_case to camelCase</label>
 				<label><input type="radio" name="exchange_type" value="sk">snake_case to kebab-case</label>
 			</form>
-			<label><input type="checkbox" name="constructor" value="true">Constructor option (capitalizeFirstLetter =>
-				<strong>C</strong>apitalizeFirstLetter).</label>
+			<label><input type="checkbox" name="constructor" value="true">Constructor option (capitalizeFirstLetter => <strong>C</strong>apitalizeFirstLetter).</label>
 		</div>
 		<hr />
 		<p class="caption">to check more &amp; latest develop statements,
-			<br>see <a href="https://github.com/DJYoko/convertCase"
-				target="_blank">https://github.com/DJYoko/convertCase</a></p>
+			<br>see <a href="https://github.com/DJYoko/convertCase" target="_blank">https://github.com/DJYoko/convertCase</a></p>
 	</div>
 	<style>
 		.line {
@@ -89,16 +81,16 @@
 		}
 	</style>
 	<script>
-		$(function () {
+		$(function() {
 
 			//edit original text
-			$('input[name="from"]').on('keyup blur mousedown', function () {
-				runConert();
+			$('input[name="from"]').on('keyup blur mousedown', function() {
+				runConvert();
 			});
 
 			//exchange_type
-			$('input[name="exchange_type"]').on('change', function () {
-				$('input[name="exchange_type"]').each(function () {
+			$('input[name="exchange_type"]').on('change', function() {
+				$('input[name="exchange_type"]').each(function() {
 					const $radio = $(this);
 					if ($radio.prop('checked') === true) {
 						$radio.closest('label').addClass('checked');
@@ -116,26 +108,26 @@
 					$('input[name="constructor"]').closest('label').addClass('disabled');
 				}
 
-				runConert();
+				runConvert();
 			});
 
 			//edit original text
-			$('input[name="constructor"]').on('change', function () {
-				runConert();
+			$('input[name="constructor"]').on('change', function() {
+				runConvert();
 			});
 
-			function runConert() {
+			function runConvert() {
 				const result = window.convertCase({
 					input: $('input[name="from"]').val(),
 					type: $('input[name="exchange_type"]:checked').val(),
-					constructor: $('input[name="constructor"]').prop('checked'),
+					isConstructor: $('input[name="constructor"]').prop('checked'),
 				});
 				$('input[name="result"]').val(result);
 			}
 
 			// run init
 			$('input[name="exchange_type"]').first().prop('checked', true).trigger('change');
-			runConert();
+			runConvert();
 
 		});
 	</script>
