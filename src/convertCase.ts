@@ -15,11 +15,7 @@ import REGEX_LIST from './REGEX_LIST';
  */
 window.convertCase = (params: any) => {
 
-    let return_string = '';
-    return_string = REGEX_LIST[params.type](params.input);
-
-    // is_constructor option
-    if (params.is_constructor === true && (params.type === 'kc' || params.type === 'sc')) {
+    let return_string = REGEX_LIST[params.type](params.input);
     // isConstructor option
     if (params.isConstructor === true && (params.type === 'kc' || params.type === 'sc')) {
         return_string = return_string.charAt(0).toUpperCase() + return_string.slice(1);
