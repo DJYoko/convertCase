@@ -48,7 +48,7 @@
 				<label><input type="radio" name="exchange_type" value="sc">snake_case to camelCase</label>
 				<label><input type="radio" name="exchange_type" value="sk">snake_case to kebab-case</label>
 			</form>
-			<label><input type="checkbox" name="constructor" value="true">Constructor option (capitalizeFirstLetter => <strong>C</strong>apitalizeFirstLetter).</label>
+			<label><input type="checkbox" name="pascal" value="true">Pascal option (capitalizeFirstLetter => <strong>C</strong>apitalizeFirstLetter).</label>
 		</div>
 		<hr />
 		<p class="caption">to check more &amp; latest develop statements,
@@ -101,18 +101,18 @@
 
 				const selected_type = $('input[name="exchange_type"]:checked').val();
 				if (selected_type === 'kc' || selected_type === 'sc') {
-					$('input[name="constructor"]').prop('disabled', false);
-					$('input[name="constructor"]').closest('label').removeClass('disabled');
+					$('input[name="pascal"]').prop('disabled', false);
+					$('input[name="pascal"]').closest('label').removeClass('disabled');
 				} else {
-					$('input[name="constructor"]').prop('disabled', true);
-					$('input[name="constructor"]').closest('label').addClass('disabled');
+					$('input[name="pascal"]').prop('disabled', true);
+					$('input[name="pascal"]').closest('label').addClass('disabled');
 				}
 
 				runConvert();
 			});
 
 			//edit original text
-			$('input[name="constructor"]').on('change', function() {
+			$('input[name="pascal"]').on('change', function() {
 				runConvert();
 			});
 
@@ -120,7 +120,7 @@
 				const result = window.convertCase({
 					input: $('input[name="from"]').val(),
 					type: $('input[name="exchange_type"]:checked').val(),
-					isConstructor: $('input[name="constructor"]').prop('checked'),
+					isPascal: $('input[name="pascal"]').prop('checked'),
 				});
 				$('input[name="result"]').val(result);
 			}
