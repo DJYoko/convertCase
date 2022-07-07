@@ -1,137 +1,135 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>convertCase</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="convertCase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="" />
+  </head>
 
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>convertCase</title>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Latest compiled and minified CSS -->
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="convertCase.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-	<!--[if lt IE 9]>
-<script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-	<link rel="shortcut icon" href="">
-</head>
+  <body>
+    <div class="container">
+      <h1>convertCase</h1>
+      <h2>about</h2>
+      <p>convertCase is simple program for TEXT exchange. <br />from camelCase to chain-case, from chain-case to snake_case etc...</p>
 
-<body>
-	<div class="container">
-		<h1>convertCase</h1>
-		<h2>about</h2>
-		<p>convertCase is simple program for TEXT exchange.
-			<br>from camelCase to kebab-case, from kebab-case to snake_case etc...</p>
-		
-		<hr />
-		<div class="line row">
-			<div class="col">
-				<h3>input</h3>
-				<input type="text" class="form-control" name="from" placeholder="type some text" autofocus>
-			</div>
-			<div class="col">
-				<h3>result</h3>
-				<input type="text" class="form-control" name="result" readonly>
-			</div>
-		</div>
-		<hr />
-		<div class="line">
-			<h3>select type</h3>
-			<form>
-				<label><input type="radio" name="exchange_type" value="ck">camelCase to kebab-case</label>
-				<label><input type="radio" name="exchange_type" value="cs">camelCase to snake_case</label>
-				<label><input type="radio" name="exchange_type" value="kc">kebab-case to camelCase</label>
-				<label><input type="radio" name="exchange_type" value="ks">kebab-case to snake_case</label>
-				<label><input type="radio" name="exchange_type" value="sc">snake_case to camelCase</label>
-				<label><input type="radio" name="exchange_type" value="sk">snake_case to kebab-case</label>
-			</form>
-			<label><input type="checkbox" name="pascal" value="true">Pascal option (capitalizeFirstLetter => <strong>C</strong>apitalizeFirstLetter).</label>
-		</div>
-		<hr />
-		<p class="caption">to check more &amp; latest develop statements,
-			<br>see <a href="https://github.com/DJYoko/convertCase" target="_blank">https://github.com/DJYoko/convertCase</a></p>
-	</div>
-	<style>
-		.line {
-			padding: 12px 0;
-		}
+      <hr />
+      <div class="line row">
+        <div class="col">
+          <h3>input</h3>
+          <input type="text" class="form-control" name="from" placeholder="type some text" autofocus />
+        </div>
+        <div class="col">
+          <h3>result</h3>
+          <input type="text" class="form-control" name="result" readonly />
+        </div>
+      </div>
+      <hr />
+      <div class="line">
+        <h3>select type</h3>
+        <form>
+          <label><input type="radio" name="exchange_type" value="ck" />camelCase to chain-case</label>
+          <label><input type="radio" name="exchange_type" value="cs" />camelCase to snake_case</label>
+          <label><input type="radio" name="exchange_type" value="kc" />chain-case to camelCase</label>
+          <label><input type="radio" name="exchange_type" value="ks" />chain-case to snake_case</label>
+          <label><input type="radio" name="exchange_type" value="sc" />snake_case to camelCase</label>
+          <label><input type="radio" name="exchange_type" value="sk" />snake_case to chain-case</label>
+        </form>
+        <label><input type="checkbox" name="pascal" value="true" />Pascal option (capitalizeFirstLetter => <strong>C</strong>apitalizeFirstLetter).</label>
+      </div>
+      <hr />
+      <p class="caption">to check more &amp; latest develop statements, <br />see <a href="https://github.com/DJYoko/convertCase" target="_blank">https://github.com/DJYoko/convertCase</a></p>
+    </div>
+    <style>
+      .line {
+        padding: 12px 0;
+      }
 
-		label {
-			cursor: pointer;
-			padding: 2px 12px;
-			transition: all 200ms;
-			border-radius: 4px;
-		}
+      label {
+        cursor: pointer;
+        padding: 2px 12px;
+        transition: all 200ms;
+        border-radius: 4px;
+      }
 
-		label:hover {
-			background-color: #fce4ec;
-		}
+      label:hover {
+        background-color: #fce4ec;
+      }
 
-		label.checked {
-			background-color: #f8bbd0;
-		}
+      label.checked {
+        background-color: #f8bbd0;
+      }
 
-		label.disabled {
-			background-color: #eeeeee;
-			cursor: no-drop;
-			opacity: 0.25;
-		}
-	</style>
-	<script>
-		$(function() {
+      label.disabled {
+        background-color: #eeeeee;
+        cursor: no-drop;
+        opacity: 0.25;
+      }
+    </style>
+    <script>
+      $(function () {
+        //edit original text
+        $('input[name="from"]').on('keyup blur mousedown', function () {
+          runConvert();
+        });
 
-			//edit original text
-			$('input[name="from"]').on('keyup blur mousedown', function() {
-				runConvert();
-			});
+        //exchange_type
+        $('input[name="exchange_type"]').on('change', function () {
+          $('input[name="exchange_type"]').each(function () {
+            const $radio = $(this);
+            if ($radio.prop('checked') === true) {
+              $radio.closest('label').addClass('checked');
+            } else {
+              $radio.closest('label').removeClass('checked');
+            }
+          });
 
-			//exchange_type
-			$('input[name="exchange_type"]').on('change', function() {
-				$('input[name="exchange_type"]').each(function() {
-					const $radio = $(this);
-					if ($radio.prop('checked') === true) {
-						$radio.closest('label').addClass('checked');
-					} else {
-						$radio.closest('label').removeClass('checked');
-					}
-				});
+          const selected_type = $('input[name="exchange_type"]:checked').val();
+          if (selected_type === 'kc' || selected_type === 'sc') {
+            $('input[name="pascal"]').prop('disabled', false);
+            $('input[name="pascal"]').closest('label').removeClass('disabled');
+          } else {
+            $('input[name="pascal"]').prop('disabled', true);
+            $('input[name="pascal"]').closest('label').addClass('disabled');
+          }
 
-				const selected_type = $('input[name="exchange_type"]:checked').val();
-				if (selected_type === 'kc' || selected_type === 'sc') {
-					$('input[name="pascal"]').prop('disabled', false);
-					$('input[name="pascal"]').closest('label').removeClass('disabled');
-				} else {
-					$('input[name="pascal"]').prop('disabled', true);
-					$('input[name="pascal"]').closest('label').addClass('disabled');
-				}
+          runConvert();
+        });
 
-				runConvert();
-			});
+        //edit original text
+        $('input[name="pascal"]').on('change', function () {
+          runConvert();
+        });
 
-			//edit original text
-			$('input[name="pascal"]').on('change', function() {
-				runConvert();
-			});
+        function runConvert() {
+          const result = window.convertCase({
+            input: $('input[name="from"]').val(),
+            type: $('input[name="exchange_type"]:checked').val(),
+            isPascal: $('input[name="pascal"]').prop('checked'),
+          });
+          $('input[name="result"]').val(result);
+        }
 
-			function runConvert() {
-				const result = window.convertCase({
-					input: $('input[name="from"]').val(),
-					type: $('input[name="exchange_type"]:checked').val(),
-					isPascal: $('input[name="pascal"]').prop('checked'),
-				});
-				$('input[name="result"]').val(result);
-			}
-
-			// run init
-			$('input[name="exchange_type"]').first().prop('checked', true).trigger('change');
-			runConvert();
-
-		});
-	</script>
-
-</body>
-
+        // run init
+        $('input[name="exchange_type"]').first().prop('checked', true).trigger('change');
+        runConvert();
+      });
+    </script>
+  </body>
 </html>

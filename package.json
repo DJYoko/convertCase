@@ -1,7 +1,7 @@
 {
   "name": "convertcase",
   "version": "1.0.0",
-  "description": "convertCase is a simple program for TEXT exchange. \r from camelCase to kebab-case, from kebab-case to snake_case etc...",
+  "description": "convertCase is a simple program for TEXT exchange. \r from camelCase to chain-case, from chain-case to snake_case etc...",
   "main": "index.js",
   "directories": {
     "doc": "docs"
